@@ -32,5 +32,5 @@ def houghTransform(image):
 	#cv2.imshow('result', result)
 	cv2.imwrite('result.png', result)
 
-	return pytesseract.image_to_string(result)
+	return pytesseract.image_to_string(result, lang='eng+hin')
 
