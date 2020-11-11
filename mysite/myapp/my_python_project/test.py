@@ -18,7 +18,7 @@ def houghTransform(image):
 	cnts = cv2.findContours(remove_horizontal, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 	cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 	for c in cnts:
-	    cv2.drawContours(result, [c], -1, (255,255,255), 5)
+	    cv2.drawContours(result, [c], -1, (255,255,255), 1)
 
 	# Remove vertical lines
 	vertical_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1,40))
@@ -26,7 +26,7 @@ def houghTransform(image):
 	cnts = cv2.findContours(remove_vertical, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 	cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 	for c in cnts:
-	    cv2.drawContours(result, [c], -1, (255,255,255), 5)
+	    cv2.drawContours(result, [c], -1, (255,255,255), 1)
 
 	#cv2.imshow('thresh', thresh)
 	#cv2.imshow('result', result)
