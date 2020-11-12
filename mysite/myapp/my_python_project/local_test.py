@@ -35,3 +35,29 @@ def houghTransform(image):
 	custom_psm_config = r'--psm 6 --oem 2'
 	return pytesseract.image_to_string(result, lang='eng+hin+san', config=custom_psm_config)
 
+
+
+import os
+from datetime import datetime
+#USERNAME
+username = '/root/'
+output_folder = username+'abhi_output_txt_files'
+
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+folder = username + 'NOT_DONE_FILES'
+for filename in os.listdir(folder):
+
+	start=datetime.now()
+
+    img = cv2.imread(os.path.join(folder,filename))
+    if img is not None:
+        ocr_res = houghTransform(image)
+
+        f= open(output_folder+'/'+filename+".txt","w+")
+        f.write(ocr_res)
+        f.close()
+
+        print(datetime.now()-start)
+        print('\n')
