@@ -51,13 +51,13 @@ for filename in os.listdir(folder):
 
 	start=datetime.now()
 
-    img = cv2.imread(os.path.join(folder,filename))
-    if img is not None:
-        ocr_res = houghTransform(image)
+	img = cv2.imread(os.path.join(folder,filename))
+	if img is not None:
+		ocr_res = houghTransform(image)
 
-        f= open(output_folder+'/'+filename+".txt","w+")
-        f.write(ocr_res)
-        f.close()
+		f= open(output_folder+'/'+filename+".txt","w+")
+		f.write(ocr_res)
+		f.close()
 
-        print(datetime.now()-start)
-        print('\n')
+		print(datetime.now()-start)
+		print('\n')
