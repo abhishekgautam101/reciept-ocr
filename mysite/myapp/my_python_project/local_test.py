@@ -32,7 +32,7 @@ def houghTransform(image):
 	#cv2.imshow('result', result)
 	#cv2.imwrite('result.png', result)
 
-	custom_psm_config = r'--psm 6 --oem 2'
+	custom_psm_config = r'--psm 6 --oem 3'
 	return pytesseract.image_to_string(result, lang='eng+hin+san', config=custom_psm_config)
 
 
@@ -53,7 +53,7 @@ for filename in os.listdir(folder):
 
 	img = cv2.imread(os.path.join(folder,filename))
 	if img is not None:
-		ocr_res = houghTransform(image)
+		ocr_res = houghTransform(img)
 
 		f= open(output_folder+'/'+filename+".txt","w+")
 		f.write(ocr_res)

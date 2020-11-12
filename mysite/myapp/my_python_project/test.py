@@ -32,6 +32,6 @@ def houghTransform(image):
 	#cv2.imshow('result', result)
 	#cv2.imwrite('result.png', result)
 
-	custom_psm_config = r'--psm 6 --oem 2'
+	custom_psm_config = r'--psm 6 --oem 3'
 	return pytesseract.image_to_string(result, lang='eng+hin+san', config=custom_psm_config)
 
